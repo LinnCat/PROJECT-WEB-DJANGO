@@ -1,0 +1,154 @@
+{% extends 'core/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}[BS] Berita sekarang - All{% endblock %}</title>
+    {% block htmlhead %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    {% endblock htmlhead %}
+</head>
+<body>
+    {% block content %}
+    
+     <!-- slider -->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://img.remediosdigitales.com/849095/no-habra-nueva-generacion-del-subaru-wrx-sti-2/1366_2000.jpeg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://wallpaperfx.com/view_image/honda-civic-type-r-1366x768-wallpaper-3262.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://s1.1zoom.me/b5050/333/419869-Kycb_1366x768.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    <!-- weather widget -->
+    <a class="weatherwidget-io" href="https://forecast7.com/ja/n6d92107d62/bandung/" data-label_1="BANDUNG" data-label_2="WEATHER" data-font="ヒラギノ角ゴ Pro W3" data-theme="blue-mountains" >BANDUNG WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+
+        <!-- card berita -->
+<div class="container text-center">
+    <div class="row">
+    <div class="col">
+      <img src="https://img2.cgtrader.com/items/3742364/518dd9881b/large/2020-toyota-supra-mk5-a90-3d-model-rigged-obj-blend-dae.jpg">
+    </div>
+    <div class="col">
+        <br>
+    <H6> MOBIL KELUARAN TOYOTA TERBARU </H6>
+    <br>    
+    <p>Supra Mk5 merupakan sebutan lain dari Toyota New GR Supra. Mobil yang tersedia di Auto2000 Digiroom ini dan dapat dimiliki ketika stoknya kembali tersedia ini merupakan generasi kelima. Di mana generasi keempatnya, atau Supra Mk4, terakhir diproduksi pada 2002 dan generasi terbarunya kembali belasan tahun kemudian.</p>
+    <p>Berdasarkan spesifikasi, mesin tersebut berkapasitas 2.998 cc, 6 silinder segaris, 24 valve, twin scroll turbocharge DOHC, chain drive with variable valve timing (VVT) atau disebut double Vanos oleh BMW.</p>
+    <p>Mobil keren ini dipersenjatai dengan mesin berkapasitas 3.000 cc 6-silinder segaris. Dengan mesin ini, GR Spura mampu menghasilkan tenaga mencapai 350 PS pada 5.000-6.500 rpm dan torsi 500 Nm pada 1.600-4.500 rpm.</p>
+    <p>Toyota Supra Mk5 sebagai generasi terbaru sedan sport ini masih dijual secara resmi oleh PT Toyota Astra Motor (TAM).</p>
+    </div>
+  </div>
+</div><br><br>
+
+<!-- text -->
+<br><div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <h3>ALL ABOUT CAR ENGINES</h3>
+      </div> <br> <br>
+      </div><br>
+    </div>
+
+<!-- Card -->
+<div class="container text-center">
+    <div class="row">
+        {% for berita in beritas %}
+      <div class="col">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{berita.gambar.url}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{berita.judul}}</h5>
+                  <p class="card-text">{{berita.deskripsi}}</p>
+                  <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
+                  </p> <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/isiberita'">Klik untuk melihat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          {% endfor %}
+          </div>
+    </div>
+    
+
+      <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About</h6>
+              <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+            </div>
+        
+            <div class="col-xs-6 col-md-3">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+                <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
+                <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
+                <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
+                <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
+                <li><a href="http://scanfcode.com/category/android/">Android</a></li>
+                <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
+           <a href="#">Scanfcode</a>.
+              </p>
+            </div>
+  
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+              </ul>
+            </div>
+          </div>
+        </div>
+  </footer>
+    {% endblock %}
+</body>
+</html>
